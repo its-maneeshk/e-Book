@@ -1,0 +1,424 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Your head content here -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e-Book Store</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* Custom CSS styles */
+      .navbar {
+        background-color: #7634fa;
+      }
+      .navbar-brand {
+        color: #fff;
+      }
+      .navbar-brand:hover {
+        color: #ccc;
+      }
+      .navbar-nav .nav-link {
+        color: #fff;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #ff0000;
+      }
+      .navbar-nav li.nav-item a.nav-link {
+        font-weight: bold;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .btn-outline-light-emphasis {
+        color: #fff;
+        background-color: transparent;
+        border: 1px solid #f8f9fa;
+      }
+      .btn-outline-light-emphasis:hover {
+        color: #212529;
+        background-color: #ff0000;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      /*WELCOME MESSAGE AND BENIFITS section*/
+      .containerX {
+        max-width: 800px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      .registration-info {
+        margin-bottom: 50px;
+      }
+      .registration-info h2 {
+        font-size: 32px;
+        color: #7634fa;
+        margin-bottom: 20px;
+      }
+      .row h2 {
+        font-size: 32px;
+        color: #7634fa;
+        margin-bottom: 20px;
+      }
+      .registration-info p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .registration-benefits h3 {
+        color: #7634fa;
+        margin-bottom: 20px;
+      }
+      .registration-benefits ul {
+        list-style-type: none;
+        padding-left: 0;
+        text-align: left;
+      }
+      .registration-benefits li {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .btn-primary {
+        background-color: #7634fa;
+        border-color: #7634fa;
+        border-radius: 20px;
+        width: 100%;
+        border: 1px solid #f8f9fa;
+      }
+      .btn-primary:hover {
+        background-color: #ff0000;
+        border-color: #5f2ee1;
+      }
+
+      /* Footer at the bottom */
+      .footer {
+        margin-top: auto;
+        background-color: #7634fa;
+        color: #fff;
+        padding: 20px 0;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .text-white {
+        color: #fff;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .text-white a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .text-white span {
+        color: #fff;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <!-- Logo and Title -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="{% static 'img/ico-ebook.png' %}"
+            alt="Logo"
+            width="40"
+            height="40"
+            class="d-inline-block align-text-center"
+          />
+          <span
+            class="p-2 fs-3"
+            style="
+              font-family: 'monospace', 'Arial Black', sans-serif;
+              font-weight: bold;
+            "
+            >e-Book</span
+          >
+        </a>
+        <!-- Navbar toggle button for mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar items -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Center-aligned items -->
+          <ul class="navbar-nav mx-auto">
+            <!-- Home, About, and Contact links -->
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'scifi' %}">SCI-FI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'fantasy' %}">FANTASY</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'anime' %}">ANIME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+            </li>
+          </ul>
+
+          <!-- Right-aligned items -->
+          <ul class="navbar-nav ml-auto">
+            <!-- Login and Sign Up buttons -->
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-danger border border-white text-white me-2"
+                href="{% url 'logout_user' %}"
+                >Logout</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-primary border border-white text-white me-2"
+                href="#"
+                >Welcome, {{ request.user.username }}</a
+              >
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light-emphasis border border-white text-white me-2"
+                href="{% url 'login_user' %}"
+                >Login</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light-emphasis border border-white text-white me-2"
+                href="{% url 'register' %}"
+                >Sign Up</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Welcome Message and Registration Benefits Section -->
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Welcome message and benefits section -->
+        <div class="col-md-6 text-start">
+          <div class="registration-info">
+            <!-- Your welcome message and benefits section content here -->
+            <div class="registration-info">
+              <h2>Welcome to e-Book Store!</h2>
+              <hr class="my-3" />
+              <h3>Create Your Account</h3>
+              <p>
+                Welcome to e-Book Store, your go-to destination for accessing a
+                vast collection of e-books! By creating an account, you gain
+                access to our extensive library of e-books covering various
+                genres such as Sci-Fi, Fantasy, Anime, and more. Registration is
+                quick, easy, and completely free!
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Registration form -->
+        <div class="col-md-6">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="text-start col-md-12">
+                <form
+                  action="{% url 'register' %}"
+                  method="POST"
+                  class="row g-3"
+                >
+                  <!-- Your registration form content here -->
+                  {% csrf_token %}
+                  <h2>Sign-up Now</h2>
+                  <hr class="my-2" />
+                  <div class="g-3">
+                    <div class="col">
+                      <label for="id_first_name" class="form-label"
+                        >First name</label
+                      >
+                      <input
+                        name="first_name"
+                        type="text"
+                        class="form-control"
+                        id="id_first_name"
+                        placeholder="First name"
+                        aria-label="First name"
+                        required
+                      />
+                    </div>
+                    <div class="col">
+                      <label for="id_last_name" class="form-label"
+                        >Last name</label
+                      >
+                      <input
+                        name="last_name"
+                        type="text"
+                        class="form-control"
+                        id="id_last_name"
+                        placeholder="Last name"
+                        aria-label="Last name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <label for="id_username" class="form-label">Username</label>
+                    <label class="visually-hidden" for="autoSizingInputGroup"
+                      >Username</label
+                    >
+                    <div class="input-group">
+                      <div class="input-group-text">@</div>
+                      <input
+                        name="username"
+                        type="text"
+                        class="form-control"
+                        id="aid_username"
+                        placeholder="Username"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="id_email" class="form-label">Email</label>
+                    <input
+                      name="email"
+                      type="email"
+                      class="form-control"
+                      id="id_email"
+                      placeholder="someone@email.com"
+                      id="inputEmail4"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="id_password" class="form-label">Password</label>
+                    <input
+                      name="password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Enter Password"
+                      id="id_password"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label for="id_confirm_password" class="form-label"
+                      >Confirm Password</label
+                    >
+                    <input
+                      name="confirm_password"
+                      type="password"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                      id="id_confirm_password"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck"
+                        required
+                      />
+                      <label class="form-check-label" for="gridCheck">
+                        I agree that all the information I have entered is true
+                        to the best of my knowledge.
+                      </label>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign up</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-3" />
+      <!-- Registration Benefits -->
+      <div class="registration-benefits">
+        <h3>Benefits of Registration:</h3>
+        <ul>
+          <li>
+            <strong>Access to a Wide Range of E-books:</strong> Gain instant
+            access to thousands of e-books across different genres.
+          </li>
+          <li>
+            <strong>Bookmark and Save Favorites:</strong> Bookmark your favorite
+            books and easily access them whenever you want.
+          </li>
+          <li>
+            <strong>Personalized Recommendations:</strong> Receive personalized
+            book recommendations based on your reading preferences.
+          </li>
+          <li>
+            <strong>Exclusive Offers and Updates:</strong> Stay informed about
+            exclusive offers, new releases, and updates on your favorite books.
+          </li>
+        </ul>
+      </div>
+      <br /><br />***<br />
+      <!-- Join Our Community -->
+      <p>
+        Join Our Community Today! Signing up for an account is simple and only
+        takes a few moments. Fill out the registration form above to get started
+        on your reading journey with e-Book Store.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="text-white">
+          &copy; 2024 e-Book Store<br />All rights reserved |
+          <a href="#" class="text-white">Privacy Policy</a> |
+          <a href="#" class="text-white">Terms of Service</a>
+        </p>
+        <p class="text-white">
+          Address: 123 Main Street, Cityville, Nepal | Phone: (555) 123-4567 |
+          Email: info.dummy@hm.com. Designed with &#10084; by
+          <span><a href="#" class="text-white">Nepali Boys</a></span>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz4fnFO9gybBud7RduPuemT//+jJXB16zg6i8UQD3lV4jD3D4KUsxvW6QE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLeAw4uq/BdI6f3l65lMImq7z6ePf3wDlQi4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

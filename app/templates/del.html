@@ -1,0 +1,84 @@
+<!-- Welcome Message and Registration Benefits Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Welcome message and benefits section -->
+        <div class="col-md-6 text-start">
+            <div class="registration-info">
+                <!-- Your welcome message and benefits section content here -->
+                <div class="registration-info">
+                    <h2>Welcome to e-Book Store!</h2>
+                    <h3>Create Your Account</h3>
+                    <p>Welcome to e-Book Store, your go-to destination for accessing a vast collection of e-books! By creating an account, you gain access to our extensive library of e-books covering various genres such as Sci-Fi, Fantasy, Anime, and more. Registration is quick, easy, and completely free!</p>
+                </div>
+            </div>
+        </div>
+        <!-- Registration form -->
+        <div class="col-md-6">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="text-start col-md-12">
+                        <form action="{% url "register" %}" method="POST" class="row g-3">
+                            <!-- Your registration form content here -->
+                            {% csrf_token %}
+                            <h2>Sign-up Now</h2>
+                            <hr class="my-2">
+                            <div class="g-3">
+                                <div class="col">
+                                    <label for="inputEmail4" class="form-label">First name</label>
+                                    <input name="first_name" type="text" class="form-control" placeholder="First name" aria-label="First name">
+                                </div>
+                                <div class="col">
+                                    <label for="inputEmail4" class="form-label">Last name</label>
+                                    <input name="last_name" type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <label for="inputPassword4" class="form-label">Username</label>
+                                <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-text">@</div>
+                                    <input name="username" type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail4" class="form-label">Email</label>
+                                <input name="email" type="email" class="form-control" placeholder="someone@email.com" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Password</label>
+                                <input name="password" type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputPassword4" class="form-label">Confirm Password</label>
+                                <input name="confirm_password" type="password" class="form-control" id="inputPassword4">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        I agree that all the information I have entered is true to the best of my knowledge.
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3">
+    <!-- Registration Benefits -->
+    <div class="registration-benefits">
+        <h3>Benefits of Registration:</h3>
+        <ul>
+            <li><strong>Access to a Wide Range of E-books:</strong> Gain instant access to thousands of e-books across different genres.</li>
+            <li><strong>Bookmark and Save Favorites:</strong> Bookmark your favorite books and easily access them whenever you want.</li>
+            <li><strong>Personalized Recommendations:</strong> Receive personalized book recommendations based on your reading preferences.</li>
+            <li><strong>Exclusive Offers and Updates:</strong> Stay informed about exclusive offers, new releases, and updates on your favorite books.</li>
+        </ul>
+    </div>
+    <br><br>***<br>
+    <!-- Join Our Community -->
+    <p>Join Our Community Today! Signing up for an account is simple and only takes a few moments. Fill out the registration form above to get started on your reading journey with e-Book Store.</p>
+</div>

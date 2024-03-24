@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".assets/app/static/img/ico-ebook.png" alt="e-Book Logo" width="250">
+  <img src="app/static/img/ico-ebook.png" alt="e-Book Logo" width="250">
 </p>
 # e-Book - a web application 
 

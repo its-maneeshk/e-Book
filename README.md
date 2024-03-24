@@ -1,4 +1,6 @@
-
+<p align="center">
+  <img src=".assets/app/static/img/ico-ebook.png" alt="e-Book Logo" width="250">
+</p>
 # e-Book - a web application 
 
 A brief description of what this project does and who it's for

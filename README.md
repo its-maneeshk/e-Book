@@ -1,13 +1,23 @@
 <p align="center">
-  <img src="app/static/img/ico-ebook.png" alt="e-Book Logo" width="250">
+  <img src="app/static/img/ico-ebook.png" alt="e-Book Logo" width="100">
 </p>
-# e-Book - a web application 
 
-A brief description of what this project does and who it's for
+# 
+<h1 align="center">🚀 e-Book - Online Book Store Any Time,Any Where 👩‍💻</h1>
 
+![e-Book screenshot](.assets/eBook-screenshot-1.png)
+<p align="center">
+  <img src=".assets/eBook-screenshot-1-1.png" width="400" />
+  <img src=".assets/eBook-screenshot-2.png" width="400" /> 
+</p>
+<p align="center">
+  <img src=".assets/eBook-screenshot-3.png" width="400" />
+  <img src=".assets/eBook-screenshot-4.png" width="400" /> 
+</p>
 
 ## Description
 This project is a web application for an eBook platform built using Django. It provides users with access to a collection of eBooks categorized by genre, allowing them to read summaries and explore available titles. Users can register, log in, and view books, with plans to implement features for reading full eBooks and interacting with the community. The application is designed with a responsive layout and includes features such as user authentication, dynamic content loading, and a clean user interface.
+
 ## Features
 
 - Admin Panel: Access an intuitive administrative interface to manage the application's settings, users, and content effortlessly.
@@ -34,37 +44,16 @@ To deploy this project run command in Command Prompt
 ```
 
 
-## Authors
-
-- [@its-maneeshk](https://www.github.com/its-maneeshk)
-
 
 ## Feedback
 
 If you have any feedback, please reach out to us at maneeshkurmii@gmail.com
 
 
-## 🚀 About Me
-As a third-year Computer Science and Engineering (CSE) student, I'm passionate about leveraging technology to solve real-world problems and enhance user experiences. I'm excited to contribute to innovative projects and collaborate with like-minded individuals to push the boundaries of what's possible in the digital realm. Let's connect and explore the endless possibilities together!
-
-
-# Hi, I'm Manish Kumar Patel 👋
-
 
 ## 🛠 Skills
 Django, Javascript, HTML, CSS...
 
-
-## Installation
-
-
-
-```bash
-  npm install my-project
-  cd my-project
-  pip install django django-crispy-forms django-bootstrap4 django-fontawesome django-markdownx django-allauth django-cleanup django-taggit django-mptt django-ckeditor Pillow djangorestframework django-webpack-loader
-
-```
     
 ## Lessons Learned
 

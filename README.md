@@ -80,36 +80,36 @@ The homepage features a vibrant and welcoming interface with the following secti
 ## Setup Instructions
 
 1. **Clone the repository**:
-    \`\`\`bash
+    ```bash
     git clone https://github.com/its-maneeshk/e-book-store.git
     cd e-book-store
-    \`\`\`
+    ```
 
 2. **Create a virtual environment**:
-    \`\`\`bash
+    ```bash
     python -m venv venv
     source venv/bin/activate   # On Windows, use \`venv\\Scripts\\activate\`
-    \`\`\`
+    ```
 
 3. **Install dependencies**:
-    \`\`\`bash
+    ```bash
     pip install -r requirements.txt
-    \`\`\`
+    ```
 
 4. **Apply migrations**:
-    \`\`\`bash
+    ```bash
     python manage.py migrate
-    \`\`\`
+    ```
 
 5. **Create a superuser**:
-    \`\`\`bash
+    ```bash
     python manage.py createsuperuser
-    \`\`\`
+    ```
 
 6. **Run the development server**:
-    \`\`\`bash
+    ```bash
     python manage.py runserver
-    \`\`\`
+    ```
 
 7. **Access the application**:
     Open your browser and go to \`http://127.0.0.1:8000/\`
